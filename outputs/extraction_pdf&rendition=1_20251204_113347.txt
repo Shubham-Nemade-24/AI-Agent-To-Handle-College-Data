@@ -1,0 +1,3 @@
+Source: data/pdf&rendition=1.pdf
+Model response:
+["Mehzabin Feroz Pathan", "2025-07-14", "CERT-001", "Two Week Online Faculty Development Program on 'Unlock The Power of AI in Education and Research'", "", "First Year School of Engineering & Technology, Pimpri Chinchwad University", "ROLL123", "Pune, Sate, Maval", "Dr. Vijay N. Patil\nDean, Faculty of SoE&T\nDr. Sudeep D. Thepade\nPro-Vice Chancellor\nDr. Govind N. Kulkarni\nVice Chancellor (I/c)\nDr. Mayur D. Jakhete\nConvener\nDr. Ramdas G. Biradar\nConvener"]

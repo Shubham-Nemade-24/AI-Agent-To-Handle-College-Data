@@ -1,0 +1,3 @@
+Source: data/Participants-81.pdf
+Model response:
+["Priya Amit Surana", "2025-05-17", "NITP / ARCH / 370/81 / 2025-26", '"One-Week Short-Term Course on “Application of Remote Sensing and GIS in Spatial Planning”'", "", "NIT Patna", "ROLL N/A", "Pimpri Chinchwad College of Engineering, Address not provided", "Convener: Dr. Ajay Kumn Associate Professor Dept. of Architecture and Planning NIT Patna Prof. Fulena Rajak Chairman Head and Professor Dept. of Architecture and Planning NIT Patna"]

@@ -1,0 +1,3 @@
+Source: data/Reena Kharat.pdf
+Model response:
+["Reena Kharat", "Not provided in certificate text", "ESAIG257-57", "Course not specified", "Not provided in certificate text", "Not specified", "", "Not provided in certificate text", "Cert_ID: ESAIG257-57"]

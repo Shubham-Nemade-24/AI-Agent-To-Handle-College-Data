@@ -1,0 +1,3 @@
+Source: data/Dr. Ketan Desale_90.pdf
+Model response:
+["Dr. Ketan Desale", "2025-08-01", "CERT-UNDEFINED", "Multimodal Techniques for Early Detection of Major Depressive Disorder presented at ICCCNet-2025", "Co-author", "Manchester Metropolitan University, Manchester, United Kingdom", "ROLL123", "", "International Conference on Computing and Communication Networks (ICCCNet -2025) organized by Manchester Metropolitan University"]

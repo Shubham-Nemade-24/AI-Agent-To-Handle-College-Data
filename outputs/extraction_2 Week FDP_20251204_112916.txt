@@ -1,0 +1,3 @@
+Source: data/2 Week FDP.pdf
+Model response:
+["Dr. Meghana Pritam Lokhande", "2025-07-14", "EICTA/JBP/2025-26/1994", "Faculty Development Programme - A Hands-on Approach in Deep Learning, LLMs, and Prompt Engineering", "", "Indian Institute of Information Technology, Nagpur & Electronics and ICT Academy (Phase II) & Pandit Dwarka Prasad Mishra Indian Institute of Information Technology, Design and Manufacturing, Jabalpur", "ROLL NUMBER MISSING", "Address missing", "Programme Coordinator: Dr. Pooja Jain, Assistant Professor, CSE I II T Nagpur; Dr. Tausif Diwan, Assistant Professor, CSE I II T Nagpur; Dr. Avinash Chandra Pandey, Assistant Professor, CSE PDPM IIITDM Jabalpur"]

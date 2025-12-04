@@ -1,0 +1,3 @@
+Source: data/EICTAJBP2025-261985.pdf
+Model response:
+["Dr. G. B. SAMBARE", "2025-07-14", "EICTA/JBP/2025-26/1985", "Faculty Development Programme on ‘A Hands-on Approach in Deep Learning, LLMs, and Prompt Engineering'", "Completed", "Indian Institute of Information Technology, Nagpur & Electronics and ICT Academy (Phase II)", "ROLL N/A", "Pandit Dwarka Prasad Mishra Indian Institute of Information Technology, Design and Manufacturing, Jabalpur", "This certificate is for an online Faculty Development Programme. Programme Coordinators: Dr. Pooja Jain (Assistant Professor, CSE, IIIT Nagpur), Dr. Tausif Diwan (Assistant Professor, CSE, IIIT Nagpur), Dr. Avinash Chandra Pandey (Assistant Professor, CSE, PDPM IIITDM Jabalpur)"]

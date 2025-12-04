@@ -1,0 +1,3 @@
+Source: data/DocScanner 09-Oct-2025 10-50 AM.pdf
+Model response:
+["Lokhande Meghana Pritam", "2025-06-23", "CERT-XXX", "Faculty Development Program on \"Empowering Educators as Authors & Content Creators\"", "N/A", "PIMPRI CHINCHWAD EDUCATION TRUST'S PIMPRI CHINCHWAD COLLEGE OF ENGINEERING, PUNE", "N/A", "Pune, N/A", "FDP Coordinator: Prof. Anandkumar S. Birajdar, Dr.Rachana Y. Patil, Prof. Dr. Govind N. Kulkarni, HOD Computer Engineering (RL), Director Computer Engineering (RL) PCCoE, Pune PCCOoE, Pune"]

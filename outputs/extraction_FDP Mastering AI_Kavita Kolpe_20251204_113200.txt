@@ -1,0 +1,3 @@
+Source: data/FDP Mastering AI_Kavita Kolpe.pdf
+Model response:
+["Professor Name", "2025-08-11", "CERT-001", "Mastering AI with Federated Deep Learning for Edge-Centric Application", "", "Chinh Wad College of Engineering", "ROLL123", "Pune, in collaboration with IEEE Education Society, Pune section from 4/8/2025 to 11/8/2025", "Dr. Jayashree V. Katti (Convener), Dr. Govind N. Kulkarni (Director), Pimpricinh Wad Education Trust's Certificate of Participation, Ms. Kavita J. Kope"]
