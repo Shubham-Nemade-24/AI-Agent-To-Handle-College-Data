@@ -19,7 +19,7 @@ HEADER = [
     "Institution/Issuing Authority",
     "Registration/Roll No",
     "Address",
-    "Other Details"
+    "Other Details",
 ]
 
 _client = None
@@ -32,21 +32,48 @@ def init_sheet():
     if _sheet is not None:
         return _sheet
 
+    # 1. Check file exists
     if not os.path.exists(SERVICE_FILE):
-        raise FileNotFoundError(f"Service account file not found: {SERVICE_FILE}")
+        raise FileNotFoundError(
+            f"Service account file not found: {os.path.abspath(SERVICE_FILE)}"
+        )
 
-    creds = Credentials.from_service_account_file(SERVICE_FILE, scopes=SCOPES)
-    _client = gspread.authorize(creds)
-    workbook = _client.open_by_key(SHEET_ID)
-    _sheet = workbook.sheet1
+    # 2. Load credentials
+    try:
+        creds = Credentials.from_service_account_file(SERVICE_FILE, scopes=SCOPES)
+    except Exception as e:
+        raise RuntimeError(
+            "Failed to load service account credentials from gs-credentials.json.\n"
+            "Make sure this is a *service account* JSON downloaded from Google Cloud, "
+            "and not an OAuth client file.\n"
+            f"Original error: {e}"
+        )
 
-    # Ensure header exists
+    # 3. Authorize with gspread + open sheet
+    try:
+        _client = gspread.authorize(creds)
+        workbook = _client.open_by_key(SHEET_ID)
+        _sheet = workbook.sheet1
+    except Exception as e:
+        # This is where invalid_grant: Invalid JWT Signature appears
+        raise RuntimeError(
+            "Failed to authorize with Google Sheets.\n"
+            "Check the following carefully:\n"
+            "  1) gs-credentials.json is an unedited *service account* key file.\n"
+            "  2) The system date & time on your Mac are correct (automatic sync on).\n"
+            "  3) The service account email has Editor access to the sheet.\n"
+            "  4) The Sheet ID in gs_connectivity.py matches the sheet you are opening.\n"
+            f"Original error: {e}"
+        )
+
+    # 4. Ensure header exists
     existing = _sheet.get_all_values()
     if len(existing) == 0:
         _sheet.update("A1:I1", [HEADER], value_input_option="USER_ENTERED")
         try:
             _sheet.format("A1:I1", {"textFormat": {"bold": True}})
         except Exception:
+            # Formatting is optional
             pass
 
     return _sheet

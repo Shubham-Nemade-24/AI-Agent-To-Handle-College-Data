@@ -1,0 +1,3 @@
+Source: data/a5871af014471d4505dc394774ef5f1f0606a741bd9339633f05c2bbc7b89200.pdf
+Model response:
+["Dr. Ketan Desale", "2025-08-01", "CERT-NNN", "Presentation at ICCCNet-2025 on Multimodal Techniques for Early Detection of Major Depressive Disorder", "Not specified in provided text", "Manchester Metropolitan University, Manchester, United Kingdom", "ROLL123 (or other registered number if available)", "Address not specified", "Certified by ICCCNet-2025 organizing committee"]

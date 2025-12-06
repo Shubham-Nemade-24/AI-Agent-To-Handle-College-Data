@@ -1,0 +1,7 @@
+Source: data/a5871af014471d4505dc394774ef5f1f0606a741bd9339633f05c2bbc7b89200.pdf
+Model response:
+["Dr. Ketan Desale", "2025-08-01", "CERT-NNN", "Presentation of paper titled 'Multimodal Techniques for Early Detection of Major Depressive Disorder' at ICCCNet-2025", "", "Manchester Metropolitan University", "ROLL123", "Address not provided", "Presented at the International Conference on Computing and Communication Networks (ICCCNet -2025) organized by Manchester Metropolitan University, Manchester, United Kingdom"]
+
+Note: The certificate number (CERT-NNN) is not explicitly mentioned in the text. It was assumed that it would follow a standard pattern for certificates issued at the conference (e.g., CERT-YYYMMDD). If this assumption is incorrect, the certificate number should be filled accordingly based on any other information provided in the certificate.
+
+Also, the "Grade / Marks" field was left empty since it wasn't specified in the text. If a grade or marks were mentioned, that would be filled in accordingly.

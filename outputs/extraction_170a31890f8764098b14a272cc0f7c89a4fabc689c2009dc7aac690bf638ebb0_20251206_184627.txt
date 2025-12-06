@@ -1,0 +1,3 @@
+Source: data/170a31890f8764098b14a272cc0f7c89a4fabc689c2009dc7aac690bf638ebb0.pdf
+Model response:
+["Professor Name", "Not available", "", "Mastering AI with Federated Deep Learning for Edge-Centric Application's", "", "Chinchilla Wald College of Engineering, Pune, in collaboration with IEEE Education Society, Pune section from 04/08/2025 to 11/08/2025", "", "Dr. Jayashree V. Katti, Convener\nDr. Govind N. Kulkarni, Director\nPimpricinchwad Education Trust’s Certificate of Participation", "Other Details: Department of Information Technology, Pimpricinchwad\nIssued by: Dr. Jayashree V. Katti (Convener), Dr. Govind N. Kulkarni (Director)\nCertificate Number: Not available"]

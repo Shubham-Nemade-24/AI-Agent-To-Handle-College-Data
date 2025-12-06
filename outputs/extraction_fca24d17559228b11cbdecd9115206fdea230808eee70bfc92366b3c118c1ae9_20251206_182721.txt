@@ -1,0 +1,3 @@
+Source: data/fca24d17559228b11cbdecd9115206fdea230808eee70bfc92366b3c118c1ae9.pdf
+Model response:
+["Meghana Pritam Lokhande", "", "EICTA/JBP/2025-26/1994", "Course / Exam / Purpose: A Hands-on Approach in Deep Learning, LLMs, and Prompt Engineering", "", "Indian Institute of Information Technology, Nagpur & Electronics and ICT Academy (Phase -II), Pandit Dwarka Prasad Mishra Indian Institute of Information Technology, Design and Manufacturing, Jabalpur", "POLLIM3456789", "", ""]

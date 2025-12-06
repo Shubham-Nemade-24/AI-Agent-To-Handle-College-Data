@@ -1,0 +1,3 @@
+Source: data/7d4723366a6c90813f2eefff6364e6d546644b04899663f45b2643d757dca1b5.pdf
+Model response:
+["Harshada Rangnath Mhaske", "2025-08-18", "SDFDP-16872", "Deep learning", "", "Pimpri Chinchwad College of Engineering", "ROLL123", "", "Assistant Professor, 2 - Weeks"]

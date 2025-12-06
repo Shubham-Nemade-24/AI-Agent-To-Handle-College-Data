@@ -1,0 +1,3 @@
+Source: data/bb78a370b54dc92429c75429375ab491467be479b7608621a7b05ad48751ee07.pdf
+Model response:
+["Shubham Anant Nemade", "2025-09-12", "322192142OCI25GAIOCP", "Oracle Cloud Infrastructure 2025 Certified Generative AI Professional", "", "Oracle Corporation", "ROLL123", "", ""]

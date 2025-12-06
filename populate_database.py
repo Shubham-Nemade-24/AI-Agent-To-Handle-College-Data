@@ -186,7 +186,6 @@ def main():
     except Exception as e:
         print(f"⚠️ Google Sheets init failed: {e}")
         print("Make sure gs-credentials.json exists and SHEET_ID is correct.")
-        # We will still continue and save outputs locally, but will not append to sheet
         sheet_available = False
     else:
         sheet_available = True
@@ -200,12 +199,13 @@ def main():
 
         new_chunks = add_chunks_to_chroma(chunks)
 
-        # Only run extraction if new chunks were added for this source
+        # Duplicate detection
         if not new_chunks:
-            print("ℹ️ No new chunks added for this source — skipping extraction.")
+            print("ℹ️ This file already exists in the vector database (no new chunks).")
+            print("   Skipping embedding + extraction for this file to avoid duplicates.")
             continue
 
-        # Build the context from the chunks for this source (prefer all chunks to provide full context)
+        # Build context text for LLM extraction
         context_text = "\n\n---\n\n".join([c.page_content for c in chunks])
 
         try:
@@ -214,16 +214,13 @@ def main():
             print(f"❌ Extraction failed for {os.path.basename(source)}: {e}")
             continue
 
-        # Save raw response for traceability
         save_raw_output(source, model_response)
 
-        # Try parse to Python list
         parsed_row = try_parse_row(model_response)
         if parsed_row is None:
             print("⚠️ Model response could not be parsed into a 9-item list. Saved raw output. Skipping sheet append.")
             continue
 
-        # Append to Google Sheet (if available)
         if sheet_available:
             try:
                 gs.append_row(parsed_row)

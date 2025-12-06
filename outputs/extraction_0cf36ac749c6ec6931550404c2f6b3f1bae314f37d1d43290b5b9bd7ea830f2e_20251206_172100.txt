@@ -1,0 +1,3 @@
+Source: data/0cf36ac749c6ec6931550404c2f6b3f1bae314f37d1d43290b5b9bd7ea830f2e.pdf
+Model response:
+["Priya Amit Surana", "2025-05-17", "NITP / ARCH / 370/81 / 2025-26", "One-Week Short-Term Course on ‘Application of Remote Sensing and GIS in Spatial Planning'", "Completed", "NIT Patna", "ROLL NUMBER MISSING", "Address not provided", "Prof. Fulena Rajak, Chairman\nHead and Professor Dept. of Architecture and Planning NIT Patna\nDr. Ajay Kumar, Convener\nAssociate Professor Dept. of Architecture and Planning NIT Patna"]

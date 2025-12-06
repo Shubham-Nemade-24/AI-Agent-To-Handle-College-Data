@@ -1,0 +1,3 @@
+Source: data/a5871af014471d4505dc394774ef5f1f0606a741bd9339633f05c2bbc7b89200.pdf
+Model response:
+["Dr. Ketan Desale", "", "CERT-001", "Course / Exam / Purpose: International Conference on Computing and Communication Networks (ICCCNet -2025)", "", "Manchester Metropolitan University, Manchester, United Kingdom", "", "" ]

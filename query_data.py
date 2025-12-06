@@ -28,7 +28,7 @@ Return ONLY a single Python list like:
 
 ["Professor Name", "YYYY-MM-DD", "CERT-001", "Course name", "Grade", "Institution", "ROLL123", "Address", "Extra details"]
 
-- Use empty string "" if any field is missing.
+- Use empty string "" in python list if any field is missing.
 - The output MUST be a valid Python list with 9 items.
 - Do NOT add explanations, labels, or multiline text.
 - Dates must be in **YYYY-MM-DD** format.

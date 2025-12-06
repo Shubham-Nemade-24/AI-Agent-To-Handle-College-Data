@@ -1,0 +1,3 @@
+Source: data/92c22db5a1a157e636fb465049d4af13924ff6d2bffab0e7fe33e4a62f6f1b4f.pdf
+Model response:
+["Dr. G. B. SAMBARE", "2025-07-14", "EICTA/JBP/2025-26/1985", "Faculty Development Programme - A Hands-on Approach in Deep Learning, LLMs, and Prompt Engineering", "", "Indian Institute of Information Technology, Nagpur & Electronics and ICT Academy (Phase II)", "ROLL NOT PROVIDED", "Pandit Dwarka Prasad Mishra Indian Institute of Information Technology, Design and Manufacturing, Jabalpur", "July 14 - 25, 2025\ndr. Pooja Jain\nAssistant Professor, CSE\nIIIT Nagpur\ndr. Tausif Diwan\nAssistant Professor, CSE\nIIIT Nagpur\dr. Avinash Chandra Pandey\nAssistant Professor, CSE\nPDPM IIITDM Jabalpur"]

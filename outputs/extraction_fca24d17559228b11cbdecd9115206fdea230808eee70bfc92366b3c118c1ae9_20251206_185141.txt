@@ -1,0 +1,3 @@
+Source: data/fca24d17559228b11cbdecd9115206fdea230808eee70bfc92366b3c118c1ae9.pdf
+Model response:
+["Dr. Meghana Pritam Lokhande", "2025-07-14", "EICTA/JBP/2025-26/1994", "Faculty Development Programme - A Hands-on Approach in Deep Learning, LLMs, and Prompt Engineering", "(No Grade provided)", "Indian Institute of Information Technology, Nagpur & Electronics and ICT Academy (Phase II) & Pandit Dwarka Prasad Mishra Indian Institute of Information Technology, Design and Manufacturing, Jabalpur", "Pimpri Chinchwad College of Engineering", "", "July 14 - 25, 2025 - Programme Coordinators: Dr. Pooja Jain, Dr. Tausif Diwan, Dr. Avinash Chandra Pandey"]
