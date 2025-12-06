@@ -1,234 +1,168 @@
-# AI Agent To Handle College Data
-
-# Certificate Extraction & Vector Search System  
-### Local PDF → Chroma Vector DB → Mistral LLM → Google Sheet Automation  
-
-This project processes certificate PDFs stored locally and extracts structured information from them using a complete pipeline consisting of:
-
-- PDF loading with optional OCR
-- Text chunking and embedding
-- Chroma vector database storage
-- Local Mistral model (via Ollama) for information extraction
-- Automatic Google Sheets data entry
-- Local logging of extraction output
-
-This system ensures:
-
-- Each PDF is embedded only once  
-- Re-embedding occurs automatically if a PDF changes  
-- Extracted data follows a strict structure  
-- Results are appended into a single Google Sheet  
-- All LLM outputs are archived locally  
+# 📄 AI Agent Certificate Data Extractor  
+### Automated system for processing PDF/Image certificates using OCR, LLM extraction, deduplication, embeddings, and Google Sheets sync.
 
 ---
 
-## Features
+## 🚀 Overview
 
-### PDF ingestion  
-Supports text-based and image-based PDFs with automatic OCR fallback.
+This project is an **AI-powered automated certificate processing system** that can:
 
-### Deduplication and change detection  
-Each PDF is hashed (SHA256).  
-A `processed.json` file tracks:
+- Ingest **multiple PDF/Image certificates**  
+- Perform **OCR (text extraction)**  
+- Use a local **Mistral (Ollama)** model to extract structured certificate fields  
+- Store searchable embeddings in **ChromaDB**  
+- Prevent duplicates using **multi-layer deduplication**  
+- Push structured rows directly into **Google Sheets**  
+- Allow users to **chat with the entire certificate database** using a **RAG pipeline**  
+- Provide a full **Streamlit UI** for easy use  
 
-- File hash  
-- Chunk IDs  
-- Last processed timestamp  
-
-If nothing changed, the PDF is skipped.
-
-### Vector database  
-- Uses Chroma (local and persistent)  
-- Automatically reprocesses missing/corrupted chunks  
-- Prevents duplicate chunks  
-
-### LLM-based extraction  
-Uses Mistral via Ollama to extract:
-
-[“Professor Name”, “Certificate Issue Date”, “Certificate Number”,
-“Course/Exam/Purpose”, “Grade/Marks”, “Institution/Issuing Authority”,
-“Registration/Roll No”, “Address”, “Other Details”]
-
-### Google Sheets integration  
-- Adds extracted rows to the same Google Sheet  
-- Creates header automatically  
-
-### Output logging  
-Saves raw extraction output into:
-
-outputs/extraction__.txt
+This is designed for colleges/institutions that handle multiple faculty documents and want an automated, intelligent data extraction workflow.
 
 ---
 
-## Project Structure
+## 🧠 Features
 
-Chat_with_pdfs_locally/
-│
-├── populate_database.py        # Ingest PDFs → Update vector DB → Trigger extraction
-├── query_data.py               # Extraction logic using Mistral
-├── gs_connectivity.py          # Google Sheet writing logic
-├── get_embedding_function.py   # Embedding loader
-├── processed.json              # Tracks processed PDF metadata
-│
-├── data/                       # Input PDFs
-│    ├── file1.pdf
-│    ├── file2.pdf
-│    └── …
-│
-├── chroma/                     # Vector store (auto-created)
-├── outputs/                    # Raw extraction logs (auto-created)
-│
-└── gs-credentials.json         # Google Sheets service account key
+### 🔹 1. Multi-File Upload (PDFs & Images)
+Upload multiple certificates at once via a clean Streamlit interface.
 
 ---
 
-## Requirements
+### 🔹 2. OCR + LLM Extraction
+- Uses **PyPDFLoader** for selectable text  
+- Falls back to **OCR (Tesseract)** for scanned PDFs/images  
+- Feeds extracted text to a local **Mistral (Ollama)** LLM  
+- Model returns a strict **9-field structured list**:
+  - Professor Name  
+  - Issue Date  
+  - Certificate Number  
+  - Course / Exam / Purpose  
+  - Grade / Marks  
+  - Institution  
+  - Registration / Roll No  
+  - Address  
+  - Other Details  
 
-### Install Python dependencies
+---
+
+### 🔹 3. Multi-Layer Deduplication  
+To ensure **no duplicate certificates** are processed:
+
+1. **SHA-256 File Hashing**  
+2. **Content Hashing (text-based)**  
+3. **ChromaDB chunk ID dedupe**
+
+This means the system skips certificates that:
+
+✔ Have the same file  
+✔ Have the same extracted text  
+✔ Are already embedded in the vector DB  
+
+---
+
+### 🔹 4. ChromaDB Embeddings  
+- Documents are chunked  
+- Embedded using a custom embedding model  
+- Stored persistently in `chroma/`
+
+---
+
+### 🔹 5. RAG-Based Chat System  
+Users can ask questions like:
+
+> "Which certificates belong to Dr. Sharma?"  
+> "What grade was achieved in NPTEL course?"  
+> "How many FDP certificates are uploaded?"
+
+The system retrieves relevant chunks and generates an answer using Mistral.
+
+---
+
+### 🔹 6. Google Sheets Integration  
+Structured certificate data is automatically appended to your Google Sheet:
+
+- Uses Google Sheets API  
+- Auto-handles header creation  
+- Includes error handling  
+- Perfect for creating a centralized digital record  
+
+---
+
+### 🔹 7. Streamlit UI  
+User-friendly interface includes:
+
+- 📤 Upload & Process certificates  
+- 💬 Chat with Vector Database  
+- 📊 View synced Google Sheet data  
+- 🔄 Reset tools  
+
+---
+
+## 🏗️ Project Structure
+
+AI-Agent-Certificate-Data-Extractor/
+│
+├── app.py                          # Streamlit UI
+├── populate_database.py             # CLI ingestion script
+├── query_data.py                    # LLM extraction prompt
+├── gs_connectivity.py               # Google Sheet API wrapper
+├── get_embedding_function.py        # Embedding model
+├── processed_doc_hashes.txt         # Content-level dedupe registry
+├── chroma/                          # Vector storage (auto-created)
+├── data/                            # Uploaded files (auto-created)
+├── outputs/                         # Raw model responses
+└── reset_vector_db.py               # Clear vector DB & metadata
+
+---
+
+## 🛠️ Installation & Setup
+
+### 1. Clone Repository
 
 ```bash
-pip install langchain langchain-community langchain-chroma \
-    langchain-text-splitters langchain-ollama \
-    pdf2image pytesseract pillow \
-    gspread google-auth
+git clone https://github.com/yourusername/AI-Agent-Certificate-Data-Extractor.git
+cd AI-Agent-Certificate-Data-Extractor
 
-System dependencies
+2. Create Virtual Environment
 
-macOS
+python3 -m venv venv
+source venv/bin/activate
 
-brew install tesseract
-brew install poppler
+3. Install Dependencies
 
-Ubuntu
+pip install -r requirements.txt
 
-sudo apt install tesseract-ocr poppler-utils
-
-Ollama setup
-
-Install Ollama: https://ollama.ai/
-
-Pull Mistral:
+4. Install & Run Ollama (Mistral Model)
 
 ollama pull mistral
 
-Start Ollama server:
+5. Add Google Sheets Credentials
 
-ollama serve
+Place your service account file as:
+
+gs-credentials.json
+
+And update SHEET_ID in gs_connectivity.py.
+
+⸻
+
+▶️ Run Streamlit App
+
+streamlit run app.py
 
 
 ⸻
 
-Running the Complete Pipeline
+🧹 Reset Vector Database (If Needed)
 
-Run everything with one command:
-
-python populate_database.py
-
-What happens:
-	1.	Loads PDFs from data/
-	2.	Performs OCR if needed
-	3.	Splits text & generates embeddings
-	4.	Stores embeddings in Chroma
-	5.	Checks for duplicates using processed.json
-	6.	For each new/updated PDF:
-	•	Runs extraction
-	•	Saves raw extraction in outputs/
-	•	Appends cleaned output to Google Sheet
-
-⸻
-
-Resetting the System
-
-To completely reset vector DB and metadata:
-
-python populate_database.py --reset
-
-Manual equivalent:
-
-rm -rf chroma processed.json
+python reset_vector_db.py
 
 
 ⸻
 
-Deduplication Logic Explained
-
-For each PDF:
-	1.	Compute file hash
-	2.	Lookup PDF entry in processed.json
-	3.	If hash matches:
-	•	Verify all chunk IDs exist in Chroma
-	•	If yes → skip
-	•	If missing → re-ingest
-	4.	If hash differs:
-	•	Delete old chunks
-	•	Re-ingest
-	5.	Update metadata
-
-Ensures consistency without duplicate embeddings.
-
-⸻
-
-Google Sheet Output Example
-
-| Professor Name | Certificate Issue Date | Certificate Number |
-| Course/Exam/Purpose | Grade/Marks | Institution | Roll No | Address | Other Details |
-|----------------|-------------------------|---------------------|
-| Dr. Sharma     | 2025-10-20             | CERT-001            |
-| ML Workshop     | A       | IIT Bombay  | REG123 | Mumbai |         |
-
-
-⸻
-
-Extraction Logging Example
-
-File saved at:
-
-outputs/extraction_DocScanner_20250206_193211.txt
-
-Contents:
-
-Source: data/DocScanner.pdf
-Model response:
-["Dr. Sharma", "2025-10-20", "CERT-001", "AI Workshop", "A", "SPPU", "ROLL123", "", ""]
-
-
-⸻
-
-Troubleshooting
-
-Problem: “File already processed” but vector DB empty
-
-Run:
-
-python populate_database.py --reset
-
-Problem: Incorrect extraction
-
-Check raw logs in outputs/.
-
-Problem: Google Sheet not updating
-
-Check:
-	•	gs-credentials.json exists
-	•	Service account email has edit permission
-	•	Sheet ID is correct
-
-⸻
-
-Optional Enhancements
-
-Possible future upgrades:
-	•	Process DOCX, images
-	•	Streamlit/Flask UI
-	•	Progress bars
-	•	Strict date normalization
-	•	CSV export
-	•	Parallel ingestion
-
-⸻
-
-License
-
-For educational and institutional use.
+📌 Example Use Cases
+	•	College/University certificate documentation
+	•	Digital archiving of faculty records
+	•	Automated extraction for NPTEL, FDP, Workshop, seminar certificates
+	•	HR/academic verification systems
 
 ⸻
